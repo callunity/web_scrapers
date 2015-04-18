@@ -16,9 +16,18 @@ for i in range(len(all_items)):
   if search_almonds:
     almonds.append(all_items[i])
     prices.append(all_prices[i])
- 
+
+almond_info = ""
+
 if almonds[0]:
   for i in range(len(almonds)):
-    print almonds[i], ': $', prices[i]
+    almond_info += almonds[i]
+    almond_info += ': $'
+    almond_info += prices[i]
+    almond_info += '/lb\n'
 else:
-  print "No almonds this week." 
+  almond_info += "No almonds this week."
+
+file_object = open('almonds.txt', 'w')
+file_object.write(almond_info)
+file_object.close()
